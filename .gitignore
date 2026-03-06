@@ -1,0 +1,117 @@
+# Bytecode / Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Claude
+.claude/
+
+# Distribución / Empaquetado
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Entorno virtual
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Data (mantener carpeta vacía)
+data/*
+!data/.gitkeep
+
+# Modelos entrenados (mantener carpeta vacía)
+models/*
+!models/.gitkeep
+
+# Resultados de backtesting (mantener carpeta vacía)
+results/*
+!results/.gitkeep
+
+# CatBoost (archivos de información generados durante el entrenamiento)
+catboost_info/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+.directory
+.Trash-*
+
+# Logs y archivos temporales
+*.log
+*.tmp
+*.temp
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+
+
+# Si en el futuro hay API keys o credenciales
+.env
+.env.local
+secrets.yaml
+credentials.json
+
+# Si hay archivos temporales durante debugging
+*.pkl.tmp
+*.parquet.tmp
+*.csv.tmp
