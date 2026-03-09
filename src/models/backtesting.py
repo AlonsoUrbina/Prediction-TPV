@@ -375,8 +375,8 @@ def ejecutar_backtesting_global(df: pd.DataFrame,
     model_name = model_type.capitalize()
 
     # PDF 1: Métricas globales
-    titulo_metricas = f"Backtesting-Global-{model_name}-Metricas"
-    tabla_metricas = [['METRICA'] + [_formatear_fecha_columna(f) for f in fechas_corte] + ['PROMEDIO']]
+    titulo_metricas = f"Backtesting Global {model_name} Métricas ({dias_testeo} días)"
+    tabla_metricas = [['MÉTRICA'] + [_formatear_fecha_columna(f) for f in fechas_corte] + ['PROMEDIO']]
     
     # --- Métricas del PERÍODO COMPLETO (promedio de dias_benchmark) ---
     fila_rmse = ['RMSE Período (B)'] + [f"${df_metricas.loc[df_metricas['fecha_corte']==f, 'rmse'].values[0]/1e9:.2f}B" for f in fechas_corte]
@@ -459,12 +459,12 @@ def ejecutar_backtesting_global(df: pd.DataFrame,
     )
     
     print(f"\nPDFs generados:")
-    print(f"   [1] Metricas globales: {pdf_metricas}")
+    print(f"   [1] Métricas globales: {pdf_metricas}")
 
     # PDF 2 y 3: Por comercio
     if not df_comercios_pct.empty:
         # PDF 2: Porcentual
-        titulo_pct = f"Backtesting-Global-{model_name}-Por-Comercio-Porcentual"
+        titulo_pct = f"Backtesting Global {model_name} Por Comercio Porcentual {dias_testeo} días"
         tabla_pct = [['COMERCIO'] + cols_meses + ['PROM', 'PROM ABS']]
         
         for _, row in df_comercios_pct.iterrows():
@@ -489,7 +489,7 @@ def ejecutar_backtesting_global(df: pd.DataFrame,
         print(f"   [2] Por comercio (%%): {pdf_pct}")
         
         # PDF 3: Cantidad en Miles de Millones (B) - Promedio Diario
-        titulo_monto = f"Backtesting-Global-{model_name}-Por-Comercio-Miles-Millones-Promedio-Diario"
+        titulo_monto = f"Backtesting Global {model_name} Por Comercio Miles Millones Promedio Diario {dias_testeo} días"
         tabla_monto = [['COMERCIO'] + cols_meses + ['PROM']]
         
         for _, row in df_comercios_monto.iterrows():
@@ -681,8 +681,8 @@ def ejecutar_backtesting_individual(df: pd.DataFrame,
     print(f"   R² Promedio     : {df_metricas['r2'].mean():.4f}")
     print(f"   Error % Promedio: {df_metricas['error_pct'].mean():.2f}%")
     
-    titulo_metricas = f"Backtesting-Individual-{model_name}-Metricas"
-    tabla_metricas = [['METRICA'] + [_formatear_fecha_columna(f) for f in fechas_corte] + ['PROMEDIO']]
+    titulo_metricas = f"Backtesting Individual {model_name} Métricas {dias_testeo} días"
+    tabla_metricas = [['MÉTRICA'] + [_formatear_fecha_columna(f) for f in fechas_corte] + ['PROMEDIO']]
     
     fila_rmse = ['RMSE (B)'] + [f"${df_metricas.loc[df_metricas['fecha_corte']==f, 'rmse'].values[0]/1e9:.2f}B" for f in fechas_corte]
     fila_rmse.append(f"${df_metricas['rmse'].mean()/1e9:.2f}B")
@@ -714,10 +714,10 @@ def ejecutar_backtesting_individual(df: pd.DataFrame,
     )
     
     print(f"\nPDFs generados:")
-    print(f"   [1] Metricas globales: {pdf_metricas}")
+    print(f"   [1] Métricas globales: {pdf_metricas}")
 
     # ========== PDF 2: Porcentual ==========
-    titulo_pct = f"Backtesting-Individual-{model_name}-Porcentual"
+    titulo_pct = f"Backtesting Individual {model_name} Porcentual {dias_testeo} días"
     tabla_pct = [['COMERCIO'] + cols_meses + ['MAE']]
 
     for _, row in df_final_pct.iterrows():
@@ -739,7 +739,7 @@ def ejecutar_backtesting_individual(df: pd.DataFrame,
     print(f"   [2] Por comercio (%%): {pdf_pct}")
 
     # ========== PDF 3: Cantidad ==========
-    titulo_monto = f"Backtesting-Individual-{model_name}-Cantidad"
+    titulo_monto = f"Backtesting Individual {model_name} Cantidad {dias_testeo} días"
     tabla_monto = [['COMERCIO'] + cols_meses + ['MAE']]
 
     for _, row in df_final_monto.iterrows():
