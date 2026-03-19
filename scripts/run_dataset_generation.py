@@ -43,7 +43,7 @@ def main():
     
     if df_raw is None:
         print(" Error: No se encontró dataset_inicial_limpio.parquet")
-        print("   Ejecuta run_data_processing.py primero")
+        print("Ejecuta primero: python scripts/run_data_processing.py")
         return
 
     # Generar dataset con features

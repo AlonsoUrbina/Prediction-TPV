@@ -269,7 +269,7 @@ python scripts/run_training.py --model-type xgboost
 python scripts/compare_models.py
 ```
 
-Los modelos se guardan en `models/` con el formato `{algoritmo}_{modo}_{fecha_corte}_{horizonte}.{ext}`.
+Los modelos se guardan en `models/` con el formato `{algoritmo}_{modo}_{fecha_corte}_{horizonte}.{ext}`. Junto con cada modelo se generan automáticamente un **CSV** con la importancia porcentual de todas las variables (`*_feature_importance.csv`) y un **PDF** con las 10 más importantes (`*_feature_importance.pdf`).
 
 ### Paso 4 — Backtesting
 
@@ -474,6 +474,7 @@ tpv-prediction/
 │   ├── features/
 │   │   └── feature_engineering.py     # Construccion de los 60+ features
 │   ├── models/
+│   │   ├── common.py                  # Utilidades compartidas (preparar_datos, guardar_importancia_variables, ...)
 │   │   ├── train.py                   # Entrenamiento LightGBM
 │   │   ├── train_catboost.py          # Entrenamiento CatBoost
 │   │   ├── train_xgboost.py           # Entrenamiento XGBoost

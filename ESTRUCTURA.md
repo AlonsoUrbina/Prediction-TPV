@@ -114,6 +114,13 @@ Implementación directa del notebook LightGBM.ipynb. Pasos internos:
 
 ### src/models/
 
+**common.py**
+
+Utilidades compartidas por todos los módulos de entrenamiento:
+- `preparar_datos(df)` — separa X e y
+- `calcular_fechas(fecha_corte, dias_pred, dias_benchmark)` — calcula los límites temporales de cada zona
+- `guardar_importancia_variables(modelo, model_type, model_filepath)` — extrae la importancia de variables (en porcentaje), guarda CSV con todas las variables y PDF con las 10 más importantes junto al archivo del modelo
+
 **train.py / train_catboost.py / train_xgboost.py**
 
 Cada archivo expone:

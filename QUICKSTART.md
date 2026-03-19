@@ -42,7 +42,9 @@ python scripts/run_dataset_generation.py --dias-pred 28 --forzar
 python scripts/run_training.py --model-type lightgbm --dias-pred 28 --dias-benchmark 7 --fecha-corte 2025-12-04 --usar-optuna --optuna-trials 20
 ```
 
-Listo! Tu modelo está entrenado en `models/`.
+Listo! Tu modelo está entrenado en `models/`. Junto al archivo del modelo se generan automáticamente:
+- `*_feature_importance.csv` — importancia porcentual de todas las variables
+- `*_feature_importance.pdf` — gráfico con las 10 variables más importantes
 
 ---
 

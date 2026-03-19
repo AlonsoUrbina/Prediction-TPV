@@ -50,12 +50,23 @@ python scripts/run_training.py --model-type catboost --fecha-corte 2025-10-01
 
 
 ### Archivos generados
+
+Al entrenar cada modelo se generan automáticamente tres archivos en `models/`:
+
 ```
 models/
 ├── lgbm_global_{modo}_2026-01-01_28dias.txt
+├── lgbm_global_{modo}_2026-01-01_28dias_feature_importance.csv
+├── lgbm_global_{modo}_2026-01-01_28dias_feature_importance.pdf
 ├── catboost_global_{modo}_2026-01-01_28dias.cbm
-└── xgboost_global_{modo}_2026-01-01_28dias.json
+├── catboost_global_{modo}_2026-01-01_28dias_feature_importance.csv
+├── catboost_global_{modo}_2026-01-01_28dias_feature_importance.pdf
+├── xgboost_global_{modo}_2026-01-01_28dias.json
+├── xgboost_global_{modo}_2026-01-01_28dias_feature_importance.csv
+└── xgboost_global_{modo}_2026-01-01_28dias_feature_importance.pdf
 ```
+
+El CSV contiene las columnas `rank`, `feature`, `importancia` e `importancia_pct` (porcentaje sobre el total), ordenadas de mayor a menor importancia. El PDF muestra un gráfico horizontal de barras con las 10 variables más importantes.
 
 ---
 

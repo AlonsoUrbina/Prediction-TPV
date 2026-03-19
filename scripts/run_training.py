@@ -108,6 +108,9 @@ def main():
             model_file = MODELS_DIR / f'xgboost_global_{MODO_COMERCIOS}_{args.fecha_corte}_{args.dias_pred}dias.json'
             guardar_modelo_xgboost(modelo, model_file)
 
+        from src.models.common import guardar_importancia_variables
+        guardar_importancia_variables(modelo, model_type, str(model_file))
+
         metricas['model_type'] = model_type
         metricas['model_file'] = str(model_file)
         resultados.append(metricas)
